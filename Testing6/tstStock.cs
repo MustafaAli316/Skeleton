@@ -11,9 +11,35 @@ namespace Testing6
         public void InstanceOK()
         {
             //create an instance of the class we want to create
-            clsStock AnStcock = new clsStock();
+            clsStock AnStock = new clsStock();
             //test to see that it exists
-            Assert.IsNotNull(AnStcock);
+            Assert.IsNotNull(AnStock);
         }
+
+        [TestMethod]
+        public void ActivePropertyOK()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //create some test data to assign to the property 
+            Boolean TestData = true;
+            //assign the data to the property 
+            AnStock.Active= TestData;
+            //test to see that the values are the same
+            Assert.AreEqual(AnStock.Active, TestData);
+        }
+        [TestMethod] 
+        public void DateAddedPropertyOK()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //create some test data to assign to the property 
+            DateTime TestData = DateTime.Now.Date;
+            //assign the data to the property 
+            AnStock.DateAdded = TestData;
+            //test to see that the values are the same
+            Assert.AreEqual(AnStock.DateAdded, TestData);
+        }
+        [TestMethod]
     }
 }
