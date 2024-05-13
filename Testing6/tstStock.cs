@@ -59,25 +59,14 @@ namespace Testing6
             //create an istance of the class we want to create
             clsStock AnStock = new clsStock();
             //create some test data to assign to the property 
-            var TestData = "Black High top";
+            char TestData = "Black High top";
             //assign the data to the property 
-            AnStock.ShoesNo = TestData;
+            AnStock.ShoesDesc = TestData;
             //test to see that the values are the same
             Assert.AreEqual(AnStock.ShoesDesc, TestData);
         }
 
-        [TestMethod]
-        public void ShoesDescPropertyOK()
-        {
-            //create an istance of the class we want to create
-            clsStock AnStock = new clsStock();
-            //create some test data to assign to the property 
-            var TestData = "Black High top";
-            //assign the data to the property 
-            AnStock.ShoesNo = TestData;
-            //test to see that the values are the same
-            Assert.AreEqual(AnStock.ShoesDesc, TestData);
-        }
+
 
         [TestMethod]
         public void ShoesBrandPropertyOK()
@@ -85,7 +74,7 @@ namespace Testing6
             //create an istance of the class we want to create
             clsStock AnStock = new clsStock();
             //create some test data to assign to the property 
-            var TestData = "Nike";
+            char TestData = "Nike";
             //assign the data to the property 
             AnStock.ShoesBrand = TestData;
             //test to see that the values are the same
@@ -98,7 +87,7 @@ namespace Testing6
             //create an istance of the class we want to create
             clsStock AnStock = new clsStock();
             //create some test data to assign to the property 
-            var TestData = "Black";
+            char TestData = "Black";
             //assign the data to the property 
             AnStock.ShoesColour = TestData;
             //test to see that the values are the same
