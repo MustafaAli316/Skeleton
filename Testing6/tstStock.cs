@@ -59,7 +59,7 @@ namespace Testing6
             //create an istance of the class we want to create
             clsStock AnStock = new clsStock();
             //create some test data to assign to the property 
-            char TestData = "Black High top";
+            string TestData = "Black High top";
             //assign the data to the property 
             AnStock.ShoesDesc = TestData;
             //test to see that the values are the same
@@ -74,7 +74,7 @@ namespace Testing6
             //create an istance of the class we want to create
             clsStock AnStock = new clsStock();
             //create some test data to assign to the property 
-            char TestData = "Nike";
+            string TestData = "Nike";
             //assign the data to the property 
             AnStock.ShoesBrand = TestData;
             //test to see that the values are the same
@@ -87,7 +87,7 @@ namespace Testing6
             //create an istance of the class we want to create
             clsStock AnStock = new clsStock();
             //create some test data to assign to the property 
-            char TestData = "Black";
+            string TestData = "Black";
             //assign the data to the property 
             AnStock.ShoesColour = TestData;
             //test to see that the values are the same
@@ -119,6 +119,29 @@ namespace Testing6
             //test to see that the values are the same
             Assert.AreEqual(AnStock.Available, TestData);
         }
+
+
+
+
+
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //create a boolean variable to store the results of the validation 
+            Boolean Found = false;
+            //create some test data to use with the method 
+            Int32 ShoeNo = 21;
+            //invoke the method 
+            Found = AnStock.Find(ShoeNo);
+            //test to see if the result is true 
+            Assert.IsTrue(Found);
+
+        }
+
+
+
 
     }
 }
