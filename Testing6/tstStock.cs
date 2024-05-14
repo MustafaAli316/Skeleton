@@ -141,6 +141,98 @@ namespace Testing6
         }
 
 
+        [TestMethod] 
+        public void TestShoesNoFound()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //create a boolean variable to store the results of the search
+            Boolean Found = false;
+            //create a Boolean variable to record if the data is OK
+            Boolean OK = true;
+            //create some test data to use with the metod 
+            int ShoeNo = 1;
+            //invoke find method
+            Found = AnStock.Find(ShoeNo);
+            //check the address id 
+            if(AnStock.ShoesNo !=1)
+            {
+                OK = false;
+            }
+            //test to see that the reslut is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestDateAddedFound()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //create a boolean variable to store the results of the search
+            Boolean Found = false;
+            //create a Boolean variable to record if the data is OK
+            Boolean OK = true;
+            //create some test data to use with the metod 
+            int ShoeNo = 1;
+            //invoke find method
+            Found = AnStock.Find(ShoeNo);
+            //check the address id 
+            if (AnStock.DateAdded != Convert.ToDateTime("23/12/2022"))
+            {
+                OK = false;
+            }
+            //test to see that the reslut is correct
+            Assert.IsTrue(OK);
+
+        }
+
+        [TestMethod]
+        public void TestShoesDescFound()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //create a boolean variable to store the results of the search
+            Boolean Found = false;
+            //create a Boolean variable to record if the data is OK
+            Boolean OK = true;
+            //create some test data to use with the metod 
+            int ShoeNo = 1;
+            //invoke find method
+            Found = AnStock.Find(ShoeNo);
+            //check the address id 
+            if (AnStock.ShoesDesc != "Black and High top")
+            {
+                OK = false;
+            }
+            //test to see that the reslut is correct
+            Assert.IsTrue(OK);
+
+        }
+
+        [TestMethod]
+        public void TestShoesBRFound()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //create a boolean variable to store the results of the search
+            Boolean Found = false;
+            //create a Boolean variable to record if the data is OK
+            Boolean OK = true;
+            //create some test data to use with the metod 
+            int ShoeNo = 1;
+            //invoke find method
+            Found = AnStock.Find(ShoeNo);
+            //check the address id 
+            if (AnStock.ShoesDesc != "Black and High top")
+            {
+                OK = false;
+            }
+            //test to see that the reslut is correct
+            Assert.IsTrue(OK);
+
+        }
+
+
 
 
     }
