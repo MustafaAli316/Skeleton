@@ -154,7 +154,7 @@ namespace ClassLibrary
             mPrice = 59.99m;
             mShoesBrand = "Nike";
             mShoesColour = "Black";
-            mShoesDesc= "High top"
+            mShoesDesc = "High top";
             mAvailable = 2;
             mActive = true;
             

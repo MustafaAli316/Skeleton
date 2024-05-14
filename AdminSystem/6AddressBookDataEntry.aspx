@@ -10,10 +10,10 @@
     <form id="form1" runat="server">
         <div>
         </div>
-        <asp:Label ID="lblShoesNo" runat="server" style="z-index: 1; left: 28px; top: 129px; position: absolute" Text="ShoesNo"></asp:Label>
         <p>
             &nbsp;</p>
         <asp:TextBox ID="TextBox1" runat="server" style="z-index: 1; left: 196px; top: 129px; position: absolute"></asp:TextBox>
+        <asp:Label ID="lblShoesNo" runat="server" style="z-index: 1; left: 28px; top: 129px; position: absolute" Text="ShoesNo"></asp:Label>
         <p>
             &nbsp;</p>
         <p>
@@ -25,17 +25,16 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="TextBox4" runat="server" style="z-index: 1; left: 196px; top: 129px; position: absolute"></asp:TextBox>
             <asp:TextBox ID="TextBox3" runat="server" style="z-index: 1; left: 196px; top: 129px; position: absolute"></asp:TextBox>
-            <asp:TextBox ID="TextBox5" runat="server" style="z-index: 1; left: 196px; top: 129px; position: absolute"></asp:TextBox>
             <asp:TextBox ID="TextBox6" runat="server" style="z-index: 1; left: 194px; top: 256px; position: absolute"></asp:TextBox>
         </p>
         <p>
             <asp:Label ID="lblShoesColour" runat="server" style="z-index: 1; left: 10px; top: 364px; position: absolute" Text="ShoesColour"></asp:Label>
         </p>
         <p>
-            &nbsp;</p>
+            &nbsp;
+            <asp:TextBox ID="TextBox5" runat="server" style="z-index: 1; left: 196px; top: 129px; position: absolute"></asp:TextBox></p>
         <p>
-            <asp:TextBox ID="TextBox8" runat="server" style="z-index: 1; left: 196px; top: 359px; position: absolute"></asp:TextBox>
-            <asp:Label ID="lblDateAdded" runat="server" style="z-index: 1; left: 10px; top: 419px; position: absolute" Text="DateAdded"></asp:Label>
+                       <asp:Label ID="lblDateAdded" runat="server" style="z-index: 1; left: 10px; top: 419px; position: absolute" Text="DateAdded"></asp:Label>
         </p>
         <p>
             <asp:TextBox ID="TextBox9" runat="server" style="z-index: 1; left: 194px; top: 422px; position: absolute"></asp:TextBox>
