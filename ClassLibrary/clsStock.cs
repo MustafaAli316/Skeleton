@@ -8,9 +8,28 @@ namespace ClassLibrary
         //private data member for the shoes no property
         private int mShoesNo;
         private DateTime mDateAdded;
+        private string mShoesBrand;
         private string mShoesDesc;
+        private string mShoesColour;
+        private decimal mPrice;
+        private int mAvailable;
+        private bool mActive;
 
-        public bool Active { get; set; }
+        public bool Active
+        {
+            get
+            {
+                //this line of code sends data out of the property
+                return mActive;
+            }
+
+
+            set
+            {
+                //this line of code sends data out of the property
+                mActive = value;
+            }
+        }
         public DateTime DateAdded 
         {
             get
@@ -61,19 +80,84 @@ namespace ClassLibrary
                 mShoesDesc = value;
             }
         }
-        public string ShoesBrand { get; set; }
-        public string ShoesColour { get; set; }
+        public string ShoesBrand
+        {
+            get
+            {
+                //this line of code sends data out of the property
+                return mShoesBrand;
+            }
 
-        public decimal Price { get; set; }
 
-       public int Available { get; set;}
+            set
+            {
+                //this line of code sends data out of the property
+                mShoesBrand = value;
+            }
+        }
+        public string ShoesColour
+        {
+            get
+            {
+                //this line of code sends data out of the property
+                return mShoesColour;
+            }
 
+
+            set
+            {
+                //this line of code sends data out of the property
+                mShoesColour = value;
+            }
+        }
+
+        public decimal Price
+        {
+            get
+            {
+                //this line of code sends data out of the property
+                return mPrice;
+            }
+
+
+            set
+            {
+                //this line of code sends data out of the property
+                mPrice = value;
+            }
+        }
+
+        public int Available
+        {
+            get
+            {
+                //this line of code sends data out of the property
+                return mAvailable;
+            }
+
+
+            set
+            {
+                //this line of code sends data out of the property
+                mAvailable = value;
+            }
+        }
+
+
+                                     //FIND METHOD
         public bool Find(int shoeNo)
         {
 
             //set the private data members to the test data value
             mShoesNo = 1;
             mDateAdded = Convert.ToDateTime("23/12/2022");
+            mPrice = 59.99m;
+            mShoesBrand = "Nike";
+            mShoesColour = "Black";
+            mShoesDesc= "High top"
+            mAvailable = 2;
+            mActive = true;
+            
             //always return true
             return true;
         }
