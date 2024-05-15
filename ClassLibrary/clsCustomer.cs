@@ -1,6 +1,7 @@
 ﻿namespace ClassLibrary
 {
-    public class clsCustomer
+    public class ClsCustomer
     {
+        public int CustomerId { get; set; }
     }
 }
