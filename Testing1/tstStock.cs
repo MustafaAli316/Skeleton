@@ -7,13 +7,13 @@ namespace Testing6
     [TestClass]
     public class tstStock
     {
-        [TestMethod]
+        [TestMethod] //d
         public void InstanceOK()
         {
             //create an instance of the class we want to create
             clsStock AnStock = new clsStock();
             //test to see that it exists
-            Assert.IsNotNull(AnStock);
+            Assert.IsNotNull(AnStock); 
         }
 
         [TestMethod]
