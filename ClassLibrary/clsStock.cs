@@ -4,6 +4,17 @@ namespace ClassLibrary
 {
     public class clsStock
     {
+        //good test data
+        //create some est data to pass the method
+        //string ShoesNo = "1";
+        //string ShoesBrand = "Nike";
+        //string ShoesDesc = "high top";
+        //string ShoesColour = "Price";
+        //string Price = "59.99";
+        //string Available = "2";
+        //string DateAdded = DateTime.Now.ToShortDateString;;;
+
+
 
         //private data member for the shoes no property
         private int mShoesNo;
