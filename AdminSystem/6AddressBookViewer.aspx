@@ -7,7 +7,6 @@
     <title></title>
 </head>
 <body>
-    Thisis the Address book of the viewer page
     <form id="form1" runat="server">
         <div>
         </div>
