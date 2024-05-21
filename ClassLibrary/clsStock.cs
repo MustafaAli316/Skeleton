@@ -5,7 +5,7 @@ namespace ClassLibrary
     public class clsStock
     {
         //good test data
-        //create some est data to pass the method
+        //create some test data to pass the method
         //string ShoesNo = "1";
         //string ShoesBrand = "Nike";
         //string ShoesDesc = "high top";

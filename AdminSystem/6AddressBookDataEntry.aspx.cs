@@ -19,10 +19,10 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //create a new instance of clsStock
         clsStock AnStock = new clsStock();
         //capture the Shoe Brand
-        //AnStock.ShoesBrand =  txtShoesBrand.Text;                //error
+        AnStock.ShoesBrand = txtShoesBrand.Text;             //error  txtShoesBrand.Text;
         //store the stock in the session object
         Session["AnStock"] = AnStock;
         //navigate to the view page
         Response.Redirect("6AddressBookViewer.aspx");
     }
-}
+} 
