@@ -4,15 +4,7 @@ namespace ClassLibrary
 {
     public class clsStock
     {
-        //good test data
-        //create some test data to pass the method
-        //string ShoesNo = "1";
-        //string ShoesBrand = "Nike";
-        //string ShoesDesc = "high top";
-        //string ShoesColour = "Price";
-        //string Price = "59.99";
-        //string Available = "2";
-        //string DateAdded = DateTime.Now.ToShortDateString;;;
+
 
 
 
@@ -171,6 +163,26 @@ namespace ClassLibrary
             
             //always return true
             return true;
+        }
+
+        public string Valid(string dateAdded, string shoesBrand, string shoesDesc, string shoesColour, string price, string available)
+        {
+            //create a string variable to srore the error 
+            String Error = "";
+            //if the shoesBrand is blank
+            if(shoesBrand.Length == 0)
+            {
+                //record error
+                Error = Error + "The Shoes Brand may not be blank : ";
+            }
+            //if the shoes brand is greater than 51 
+            if(shoesBrand.Length > 51)
+            {
+                Error = Error + " The Shoes Brand must be less than 51 Characters : ";
+            }
+
+            //return any error messages
+            return Error;
         }
     }
 }

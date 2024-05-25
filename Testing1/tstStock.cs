@@ -7,6 +7,16 @@ namespace Testing6
     [TestClass]
     public class tstStock
     {
+
+        //good test data
+        //create some test data to pass the method
+        string ShoesBrand = "Nike";
+        string ShoesDesc = "high top";
+        string ShoesColour = "Price";
+        string Price = "59.99";
+        string Available = "2";
+        string DateAdded = DateTime.Now.ToShortDateString();
+
         [TestMethod] //d
         public void InstanceOK()
         {
@@ -24,7 +34,7 @@ namespace Testing6
             //string variable to store any error message
             String Error = "";
             //invoke the method  
-            //Error = AnStock.Valid(DateAdded, ShoesNo, ShoesBrand,ShoesDesc, ShoesColour, Price, Available);
+            Error = AnStock.Valid(DateAdded,ShoesBrand,ShoesDesc, ShoesColour, Price, Available);
             //test to see that the values are the same
             Assert.AreEqual(Error, "");
         }
@@ -338,6 +348,162 @@ namespace Testing6
             Assert.IsTrue(OK);
 
         }
+
+
+
+                /* TESTS FOR PARAMETERS*/
+
+
+
+        [TestMethod]
+        public void ShoesBrandMinLessOne()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string c=variable to store any error message 
+            String Error = "";
+            //create some test data to pass the method 
+            string ShoesBrand = "";  //String might be wrong or string lower case 
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ShoesBrandMin()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string c=variable to store any error message 
+            String Error = "";
+            //create some test data to pass the method 
+            string ShoesBrand = "a";  //String might be wrong or string lower case 
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+
+        }
+
+        [TestMethod]
+        public void ShoesBrandMinPlusone()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string c=variable to store any error message 
+            String Error = "";
+            //create some test data to pass the method 
+            string ShoesBrand = "aa";  //String might be wrong or string lower case 
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+
+        }
+
+        [TestMethod]
+        public void ShoesBrandMaxLessOne()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string c=variable to store any error message 
+            String Error = "";
+            //create some test data to pass the method 
+            string ShoesBrand = "";
+            ShoesBrand = ShoesBrand.PadRight(49, 'a');
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+
+        }
+
+
+        [TestMethod]
+        public void ShoesBrandMax()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string c=variable to store any error message 
+            String Error = "";
+            //create some test data to pass the method 
+            string ShoesBrand = "";
+            ShoesBrand = ShoesBrand.PadRight(50, 'a');
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+
+        }
+
+        [TestMethod]
+        public void ShoesBrandMid()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string c=variable to store any error message 
+            String Error = "";
+            //create some test data to pass the method 
+            string ShoesBrand = "";
+            ShoesBrand = ShoesBrand.PadRight(25, 'a');
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+
+        }
+
+
+
+        public void ShoesBrandMaxPlusOne()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string c=variable to store any error message 
+            String Error = "";
+            //create some test data to pass the method 
+            string ShoesBrand = "";
+            ShoesBrand = ShoesBrand.PadRight(51, 'a');
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+
+        }
+
+        public void ShoesBrandExtremeMax()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string c=variable to store any error message 
+            String Error = "";
+            //create some test data to pass the method 
+            string ShoesBrand = "";
+            ShoesBrand = ShoesBrand.PadRight(500, 'a');
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 }
