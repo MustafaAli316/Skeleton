@@ -14,7 +14,9 @@ public partial class _1Viewer : System.Web.UI.Page
         clsStock AnStock = new clsStock();
         //get the data from the session object 
         AnStock = (clsStock)Session["AnStock"];
-        //display the house number for this entry 
+        //display the Shoes number for this entry 
         Response.Write(AnStock.ShoesBrand);
-    }
+  
+
+    } 
 }
