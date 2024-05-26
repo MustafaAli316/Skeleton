@@ -58,6 +58,7 @@
     <Compile Include="clsOrderline.cs" />
     <Compile Include="clsOrders.cs" />
     <Compile Include="clsStock.cs" />
+    <Compile Include="clsStockCollection.cs" />
     <Compile Include="clsSuppliers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

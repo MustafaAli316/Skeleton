@@ -169,6 +169,8 @@ namespace ClassLibrary
         {
             //create a string variable to srore the error 
             String Error = "";
+            //create a temporary variable to store the date values 
+            DateTime DateTemp; 
             //if the shoesBrand is blank
             if(shoesBrand.Length == 0)
             {
@@ -181,8 +183,80 @@ namespace ClassLibrary
                 Error = Error + " The Shoes Brand must be less than 51 Characters : ";
             }
 
+
+            
+            //create an instance of DateTime to compare with DateTemp 
+            //in the if statements 
+            DateTime DateComp = DateTime.Now.Date;
+
+            try
+            {
+                DateTemp = Convert.ToDateTime(dateAdded);
+
+                if (DateTemp < DateComp)
+                {
+                    Error = Error + "The date cannot be in the past : ";
+                }
+
+                if (DateTemp > DateComp)
+                {
+                    Error = Error + "The date cannot be in the future : ";
+                }
+
+            }
+
+            catch
+            {
+                Error = Error + "The date was not a valid date : "; 
+
+            }
+
+            // Error as still filling in  comment regardless of correct code 
+            if (shoesDesc.Length == 0)
+            {
+                //Record the error
+                Error = Error + "The Shoes Description may not be blank : ";
+            }
+
+
+            if (shoesDesc.Length > 50)
+            {
+                //Record the error
+                Error = Error + "The Shoes Description must be less than 50 characters : ";
+            }
+
+            if (shoesColour.Length == 0)
+            {
+                //Record the error
+                Error = Error + "The Shoes Colour may not be blank : ";
+            }
+
+
+            if (shoesColour.Length > 11)
+            {
+                //Record the error
+                Error = Error + "The Shoes Colour must be less than 11 characters : ";
+            }
+
+
+            if (price.Length == 0)
+            {
+                //Record the error
+                Error = Error + "The Shoes price may not be blank : ";
+            }
+
+
+            if (price.Length > 18)
+            {
+                //Record the error
+                Error = Error + "The Shoes price must be less than 19 characters : ";
+            }
+
+
             //return any error messages
             return Error;
+
+
         }
     }
 }

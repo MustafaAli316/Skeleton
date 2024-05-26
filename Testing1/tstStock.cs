@@ -455,7 +455,7 @@ namespace Testing6
         }
 
 
-
+        [TestMethod]
         public void ShoesBrandMaxPlusOne()
         {
             //create an istance of the class we want to create
@@ -468,10 +468,11 @@ namespace Testing6
             //invoke the method 
             Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
             //test to see that the result is correct 
-            Assert.AreEqual(Error, "");
+            Assert.AreEqual(Error, "");  // error comes up when on notequal 
 
         }
 
+        [TestMethod]
         public void ShoesBrandExtremeMax()
         {
             //create an istance of the class we want to create
@@ -480,7 +481,264 @@ namespace Testing6
             String Error = "";
             //create some test data to pass the method 
             string ShoesBrand = "";
-            ShoesBrand = ShoesBrand.PadRight(500, 'a');
+            ShoesBrand = ShoesBrand.PadRight(500, 'a'); 
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreNotEqual(Error, "");
+        }
+
+
+
+
+        [TestMethod]
+
+        public void DateAddedExtremeMin()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string c=variable to store any error message 
+            String Error = "";
+
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less than 100 years
+            TestDate = TestDate.AddYears(-100);
+            //convert the date variable to a string variable
+            string DateAdded = TestDate.ToString();
+
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreNotEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void DateAddedMinLessOne()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string c=variable to store any error message 
+            String Error = "";
+
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less than 100 years
+            TestDate = TestDate.AddDays(-1);
+            //convert the date variable to a string variable
+            string DateAdded = TestDate.ToString();
+
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreNotEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void DateAddedMin()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string c=variable to store any error message 
+            String Error = "";
+
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+           
+            //convert the date variable to a string variable
+            string DateAdded = TestDate.ToString();
+
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedMinPlusOne()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string c=variable to store any error message 
+            String Error = "";
+
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is plus 1 day
+            TestDate = TestDate.AddDays(1);
+            //convert the date variable to a string variable
+            string DateAdded = TestDate.ToString();
+
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedExtremeMax()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string c=variable to store any error message 
+            String Error = "";
+
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less than 100 years
+            TestDate = TestDate.AddYears(100);
+            //convert the date variable to a string variable
+            string DateAdded = TestDate.ToString();
+
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedInvalidData()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string c=variable to store any error message 
+            String Error = "";
+
+            //convert the date variable to a string variable
+            string DateAdded = "This is not a date! ";
+
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreNotEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void ShoesDescMinLessOne()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message 
+            String Error = "";
+            //this should fail
+            string ShoesDesc = "";
+
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ShoesDescMin()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message 
+            String Error = "";
+        
+            string ShoesDesc = "a";
+
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void ShoesDescMinPlusOne()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message 
+            String Error = "";
+
+            string ShoesDesc = "aa";
+
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void ShoesDescMaxLessOne()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message 
+            String Error = "";
+
+            string ShoesDesc = "";
+            ShoesDesc = ShoesDesc.PadRight(49, 'a');
+
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void ShoesDescMax()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message 
+            String Error = "";
+
+            string ShoesDesc = "";
+            ShoesDesc = ShoesDesc.PadRight(50, 'a');
+
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ShoesDescMaxPlusOne()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message 
+            String Error = "";
+
+            string ShoesDesc = "";
+            ShoesDesc = ShoesDesc.PadRight(51, 'a');
+
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ShoesDescMid()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message 
+            String Error = "";
+
+            string ShoesDesc = "";
+            ShoesDesc = ShoesDesc.PadRight(25, 'a');
+
             //invoke the method 
             Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
             //test to see that the result is correct 
@@ -490,16 +748,244 @@ namespace Testing6
 
 
 
+        [TestMethod]
+        public void ShoesColourMinLessOne()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message 
+            String Error = "";
+            //this should fail
+            string ShoesColour = "";
+
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ShoesColourMin()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message 
+            String Error = "";
+
+            string ShoesColour = "a";
+
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+        }
 
 
+        [TestMethod]
+        public void ShoesColourMinPlusOne()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message 
+            String Error = "";
+
+            string ShoesColour = "aa";
+
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+        }
 
 
+        [TestMethod]
+        public void ShoesColourMaxLessOne()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message 
+            String Error = "";
+
+            string ShoesColour = "";
+            ShoesColour = ShoesColour.PadRight(9, 'a');
+
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+        }
 
 
+        [TestMethod]
+        public void ShoesColourMax()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message 
+            String Error = "";
+
+            string ShoesColour = "";
+            ShoesColour = ShoesColour.PadRight(10, 'a');
+
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ShoesColourMaxPlusOne()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message 
+            String Error = "";
+
+            string ShoesColour = "";
+          
+
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ShoesColourMid()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message 
+            String Error = "";
+
+            string ShoesColour = "";
+            ShoesColour = ShoesColour.PadRight(5, 'a');
+
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+        }
 
 
+        [TestMethod]
+        public void PriceMinLessOne()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message 
+            String Error = "";
+            //this should fail
+            string Price = "";
+
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PriceMin()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message 
+            String Error = "";
+
+            string Price = "a";
+
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+        }
 
 
+        [TestMethod]
+        public void PriceMinPlusOne()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message 
+            String Error = "";
+
+            string Price = "aa";
+
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void PriceMaxLessOne()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message 
+            String Error = "";
+
+            string Price = "";
+            Price = Price.PadRight(17, 'a');
+
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void PriceMax()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message 
+            String Error = "";
+
+            string Price = "";
+            Price = Price.PadRight(18, 'a');
+
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PriceMaxPlusOne()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message 
+            String Error = "";
+
+            string Price = "";
+            Price = Price.PadRight(19,'a');
+
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PriceMid()
+        {
+            //create an istance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message 
+            String Error = "";
+
+            string Price = "";
+            Price = Price.PadRight(9, 'a');
+
+            //invoke the method 
+            Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+        }
 
 
 
