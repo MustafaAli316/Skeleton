@@ -20,51 +20,52 @@ public partial class _1_DataEntry : System.Web.UI.Page
         clsStock AnStock = new clsStock();
 
         //capture the Shoe Brand
-        String ShoesBrand = txtShoesBrand.Text;
+        string ShoesBrand = txtShoesBrand.Text;
         //capture the Shoe Desc
-        String ShoesDesc = txtShoesDesc.Text;
+        string ShoesDesc = txtShoesDesc.Text;
         //capture the shoes colour
-        String ShoesColour = txtShoesColour.Text;
+        string ShoesColour = txtShoesColour.Text;
         //capture the price 
-        String Price = txtPrice.Text;
+        string Price = txtPrice.Text;
         //capture availability 
-        String Available = txtAvaiable.Text;
+        string Available = txtAvaiable.Text;
         //capture active
-        String Active = chkActive.Text;
+        string Active = chkActive.Text;
         //capture dateAdded 
-        String DateAdded = txtDateAdded.Text;
+        string DateAdded = txtDateAdded.Text;
+
+
 
         //variable to store any error messages
-        String Error = "";
-        //validate the error
+        string Error = "";
+        //validate the errors
 
+        Error = AnStock.Valid(DateAdded, ShoesBrand, ShoesDesc, ShoesColour, Price, Available);
 
-        ///commented errors
+        if(Error == "")
+        {
+            //capture 
+            AnStock.ShoesBrand = ShoesBrand;
+            //capture 
+            AnStock.ShoesDesc = ShoesDesc;
+            //Capture 
+            AnStock.ShoesColour = ShoesColour;
+            //capture 
+            //AnStock.Price = Price;
+            //capture 
+            AnStock.DateAdded = Convert.ToDateTime(DateAdded);
 
+            //Store the address in the session object 
+            Session["AnStock"] = AnStock;
+            //navigate to view page 
+            Response.Redirect("6AddressBookViewer.aspx");
+           
 
-        //Error.AnStock.Valid(ShoesBrand, ShoesDesc, ShoesColour, Price, Available, DateAdded);
-
-        //if (Error - "")
-        //{
-
-
-        //    //capture the Shoe Brand
-        //    ShoesBrand = txtShoesBrand.Text;
-        //    //capture the Shoe Desc
-        //    ShoesDesc = txtShoesDesc.Text;
-        //    //capture the shoes colour
-        //    ShoesColour = txtShoesColour.Text;
-        //    //capture the price 
-        //    Price = Convert.ToDecimal(txtPrice.Text);
-        //    //capture availability 
-        //    Available = Convert.ToInt32(txtAvaiable.Text);
-        //    //capture dateAdded 
-        //    DateAdded = Convert.ToDateTime(DateTime.Now);
-
-        //    //store the stock in the session object
-        //    Session["AnStock"] = AnStock;
-        //    //navigate to the view page
-        //    Response.Redirect("6AddressBookViewer.aspx");
-        //}
+        }
+        else
+        {
+            //display error message
+            lblError.Text = Error;
+        }
     }
 } 
