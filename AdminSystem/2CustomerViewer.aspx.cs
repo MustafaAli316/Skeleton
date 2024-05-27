@@ -9,6 +9,7 @@ using ClassLibrary;
 public partial class _1Viewer : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
+
     {
         //create a new instance of clsCustomer
         clsCustomer ACustomer = new clsCustomer();
@@ -28,5 +29,6 @@ public partial class _1Viewer : System.Web.UI.Page
         Response.Write(ACustomer.EmailAddress);
         //display the loyal customer for this entry
         Response.Write(ACustomer.LoyalCustomer);
+
     }
 }

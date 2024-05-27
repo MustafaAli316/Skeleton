@@ -5,6 +5,7 @@ namespace ClassLibrary
     public class clsCustomer
     {
         //private data member for customer id
+
         private int mCustomerId;
         public int CustomerId { get; set; }
         //private data member for firstname
@@ -25,5 +26,6 @@ namespace ClassLibrary
         //private data member for loyal customer
         private int mLoyalCustomer;
         public bool LoyalCustomer { get; set; }
+
     }
 }
