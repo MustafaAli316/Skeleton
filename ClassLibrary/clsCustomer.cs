@@ -12,7 +12,7 @@ namespace ClassLibrary
         private int mFirstName;
         public string FirstName { get; set; }
         //private data member for lastname
-        private int mLastName;
+        private string mLastName;
         public string LastName { get; set; }
         //private data member for address
         private int mAddress;
