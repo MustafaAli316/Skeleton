@@ -14,7 +14,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //create a new instance of clsCustomer
         clsCustomer ACustomer = new clsCustomer();
         //capture the customer id
-        ACustomer.CustomerId  = Convert.ToInt32(txtCustomerId.Text);
+       // ACustomer.CustomerId  = Convert.ToInt32(txtCustomerId.Text);
         //capture the customer first name
         ACustomer.FirstName = txtFirstName.Text;
         //capture the customer first name
@@ -31,6 +31,11 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Session["ACustomer"] = ACustomer;
         //navigate to the view page 
         Response.Redirect("2CustomerViewer.aspx");
+
+    }
+
+    protected void btnOk_Click(object sender, EventArgs e)
+    {
 
     }
 }
