@@ -4,28 +4,114 @@ namespace ClassLibrary
 {
     public class clsCustomer
     {
-        //private data member for customer id
-
-        private int mCustomerId;
-        public int CustomerId { get; set; }
-        //private data member for firstname
-        private int mFirstName;
-        public string FirstName { get; set; }
-        //private data member for lastname
+        //private data member for customer 
+        private Int32 mCustomerId;
+        private string mFirstName;
         private string mLastName;
-        public string LastName { get; set; }
-        //private data member for address
-        private int mAddress;
-        public string Address { get; set; }
-        //private data member for emailaddress
-        private int mEmailAddress;
-        public string EmailAddress { get; set; }
-        //private data member for date of birth
-        private int mDateOfBirth;
-        public DateTime DateOfBirth { get; set; }
-        //private data member for loyal customer
-        private int mLoyalCustomer;
-        public bool LoyalCustomer { get; set; }
+        private string mAddress;
+        private string mEmailAddress;
+        private DateTime mDateOfBirth;
+        private Boolean mLoyalCustomer;
 
+
+        //customerid public property
+        public Int32 CustomerId
+        {
+            get
+            {
+                return mCustomerId;
+            }
+            set
+            {
+                mCustomerId = value;
+            }
+
+        }
+         
+        
+        public string FirstName
+        {
+            get
+            {
+                return mFirstName;
+            }
+            set
+            {
+                mFirstName = value;
+            }
+        }
+        
+        public string LastName
+        {
+            get
+            {
+                return mLastName;
+            }
+            set
+            {
+                mLastName = value;
+            }
+        }
+        
+        public string Address
+        {
+            get
+            {
+                return mAddress;
+            }
+            set
+            {
+                mAddress = value;
+            }
+        }
+        
+        public string EmailAddress
+        {
+            get
+            {
+                return mEmailAddress;
+            }
+            set
+            {
+                mEmailAddress = value;
+            }
+        }
+        
+        public DateTime DateOfBirth
+        {
+            get
+            {
+                return mDateOfBirth;
+            }
+            set
+            {
+                mDateOfBirth = value;
+            }
+        }
+       
+        public bool LoyalCustomer
+        {
+            get
+            {
+                return mLoyalCustomer;
+            }
+            set
+            {
+                mLoyalCustomer = value;
+            }
+        }
+
+        public bool Find(int customerId)
+        {
+            //set the private data 
+            mCustomerId = 4;
+            mDateOfBirth = Convert.ToDateTime("22/12/2000");
+            mAddress = "64 stanmore road";
+            mEmailAddress = "arif786@live.com";
+            mFirstName = "ahsan";
+            mLastName = "arif";
+            mLoyalCustomer = false;
+            return true;
+        }
     }
 }
