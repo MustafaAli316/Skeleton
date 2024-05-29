@@ -101,17 +101,34 @@ namespace ClassLibrary
             }
         }
 
-        public bool Find(int customerId)
+        public bool Find(int CustomerId)
         {
-            //set the private data 
-            mCustomerId = 4;
-            mDateOfBirth = Convert.ToDateTime("22/12/2000");
-            mAddress = "64 stanmore road";
-            mEmailAddress = "arif786@live.com";
-            mFirstName = "ahsan";
-            mLastName = "arif";
-            mLoyalCustomer = false;
-            return true;
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+
+            //add parameter for the customerid to serach for
+            DB.AddParameter("@CustomerId", CustomerId);
+
+            //execute the stored procedure
+            DB.Execute("sproc_tblCustomer_FilterByCustumerId");
+
+            if (DB.Count == 1) 
+            {
+                //copy the data from the database to the private data member
+                mCustomerId = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerId"]);
+                mFirstName = Convert.ToString(DB.DataTable.Rows[0]["FirstName"]);
+                mLastName = Convert.ToString(DB.DataTable.Rows[0]["LastName"]);
+                mDateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfBirth"]);
+                mAddress = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
+                mEmailAddress = Convert.ToString(DB.DataTable.Rows[0]["EmailAddress"]);
+                mLoyalCustomer = Convert.ToBoolean(DB.DataTable.Rows[0]["LoyalCustomer"]);
+                //return that eerything worked OK
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

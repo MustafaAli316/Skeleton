@@ -119,6 +119,7 @@ namespace Testing2
             Assert.IsTrue(Found);
 
         }
+
         [TestMethod]
         public void TestCustumerIdFound()
         {
@@ -153,7 +154,7 @@ namespace Testing2
             //invoke the method
             Found = AnCustomer.Find(CustomerId);
             //check the FirstName property
-            if (AnCustomer.FirstName != "ahsan")
+            if (AnCustomer.FirstName != "ahsan     ")
             {
                 OK = false;
             }
@@ -174,7 +175,7 @@ namespace Testing2
             //invoke the method
             Found = AnCustomer.Find(CustomerId);
             //check the LastName property
-            if (AnCustomer.LastName != "arif")
+            if (AnCustomer.LastName != "arif      ")
             {
                 OK = false;
             }
