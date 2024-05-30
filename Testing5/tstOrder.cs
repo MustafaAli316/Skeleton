@@ -119,5 +119,173 @@ namespace Testing5
 
 
         }
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //create a boolean variable to store the results of the validation
+            Boolean Found = false;
+            //create some test data to use with the method
+            Int32 OrderID = 21;
+            //invoke the method
+            Found = AnOrder.Find(OrderID);
+            //test to see if the result is true
+            Assert.IsTrue(Found);
+        }
+        [TestMethod]
+        public void TestOrderIDFound()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //create a boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a boolean variable to record if the data is OK assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 OrderID = 21;
+            //invoke the method
+           Found = AnOrder.Find(OrderID);
+            //check the orderID
+            if(AnOrder.OrderID != 21)
+            { 
+            OK = false;
+            } 
+               //test to see that the result is correct
+               Assert.IsTrue(OK);
+
+        }
+        [TestMethod]
+        public void TestOrderDateFound()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //create a boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a boolean variable to record if the data is OK assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 OrderID = 21;
+            //invoke the method
+            Found = AnOrder.Find(OrderID);
+            //check the date
+            if (AnOrder.OrderDate != Convert.ToDateTime("23/12/2022"))
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+
+        }
+        [TestMethod]
+        public void TestQuantity()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //create a boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a boolean variable to record if the data is OK assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 OrderID = 21;
+            //invoke the method
+            Found = AnOrder.Find(OrderID);
+            //check the quantity
+            if (AnOrder.Quantity != 21)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+
+        }
+        [TestMethod]
+        public void TestProductID()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //create a boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a boolean variable to record if the data is OK assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 OrderID = 21;
+            //invoke the method
+            Found = AnOrder.Find(OrderID);
+            //check the productID
+            if (AnOrder.ProductID != 21)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+
+        }
+        [TestMethod]
+        public void TestCourierCompanyFound()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //create a boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a boolean variable to record if the data is OK assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 OrderID = 21;
+            //invoke the method
+            Found = AnOrder.Find(OrderID);
+            //check the courier...
+            if (AnOrder.CourierCompany != "AAA")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+
+        }
+        [TestMethod]
+        public void TestTotalFound()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //create a boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a boolean variable to record if the data is OK assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 OrderID = 21;
+            //invoke the method
+            Found = AnOrder.Find(OrderID);
+            //check the total
+            if (AnOrder.Total != 21)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+
+        }
+        [TestMethod]
+        public void TestOrderCompletedFound()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //create a boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a boolean variable to record if the data is OK assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 OrderID = 21;
+            //invoke the method
+            Found = AnOrder.Find(OrderID);
+            //check the orderID
+            if (AnOrder.OrderCompleted != true)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+
+        }
     }
 }
