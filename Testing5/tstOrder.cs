@@ -7,6 +7,17 @@ namespace Testing5
     [TestClass]
     public class TstOrder
     {
+        //good test data
+        //create some test data to pass the method
+        String OrderID = "01";
+        String ProductID = "01";
+        string OrderDate = DateTime.Now.ToShortDateString();
+        string CourierCompany = "AAAA";
+        string Quantity = "1";
+        string Total = "100.00";
+
+
+        
         [TestMethod]
         public void InstanceOk()
         {
@@ -285,6 +296,19 @@ namespace Testing5
             }
             //test to see that the result is correct
             Assert.IsTrue(OK);
+
+        }
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            //create an instance of the clss we want to create
+            clsOrders AnOrder = new clsOrders();
+        //string variables to store error message
+        string Error = "";
+        //invoke the method
+        Error = AnOrder.Valid(OrderID,OrderDate,ProductID,Quantity,Total,CourierCompany);
+            //test to see that the are correct
+      Assert.AreEqual(Error,"");
 
         }
     }
