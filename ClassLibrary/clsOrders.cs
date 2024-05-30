@@ -140,5 +140,10 @@ namespace ClassLibrary
             //always return the true
             return true;
         }
+
+        public string Valid(string orderID, string orderDate, string productID, string quantity, string total, string courierCompany)
+        {
+            return"";
+        }
     }
 }
