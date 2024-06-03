@@ -18,23 +18,45 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //create a new instance of clsCustomer
         clsCustomer ACustomer = new clsCustomer();
         //capture the customer id
-        ACustomer.CustomerId = Convert.ToInt32(txtCustomerId.Text);
+        string CustomerId = txtCustomerId.Text;
         //capture the customer first name
-        ACustomer.FirstName = txtFirstName.Text;
+        string FirstName = txtFirstName.Text;
         //capture the customer first name
-        ACustomer.LastName = txtLastName.Text;
+        string LastName = txtLastName.Text;
         //capture the customer date of birth
-        ACustomer.DateOfBirth = Convert.ToDateTime(DateTime.Now);
+        String DateOfBirth = txtDateOfBirth.Text;
         //capture the customer email address
-        ACustomer.EmailAddress = txtEmailAddress.Text;
+        string EmailAddress = txtEmailAddress.Text;
         //capture the customer Address
-        ACustomer.Address = txtAddress.Text;
+        string Address = txtAddress.Text;
         //capture the customer is that a loyal customer
-        ACustomer.LoyalCustomer = chkLoyalCustomer.Checked;
-        //store the customer in the session object
-        Session["ACustomer"] = ACustomer;
-        //navigate to the view page 
-        Response.Redirect("2CustomerViewer.aspx");
+        string LoyalCustomer = chkLoyalCustomer.Text;
+        //variable to store any error messages
+        String Error = "";
+        //validate the data
+        Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, EmailAddress, Address);
+        if (Error == "")
+        {
+            //capture the first name
+            ACustomer.FirstName = FirstName;    
+            //capture the last name
+            ACustomer.LastName = LastName;
+            //capture the date of birth
+            ACustomer.DateOfBirth = Convert.ToDateTime(DateOfBirth);
+            //capture the Email address
+            ACustomer.EmailAddress = EmailAddress;
+            //capture the address
+            ACustomer.Address = Address;
+            //store the customer in the session object
+            Session["ACustomer"] = ACustomer;
+            //navigate to the view page
+            Response.Redirect("2CustomerViewer.aspx");
+        }
+        else 
+        {
+            //display error message
+            lblError.Text = Error;
+        }
     }
 
     protected void btnFind_Click(object sender, EventArgs e)

@@ -130,5 +130,79 @@ namespace ClassLibrary
                 return false;
             }
         }
+
+        public string Valid(string firstName, string lastName, string dateOfBirth, string address, string emailAddress)
+        {
+            //create a string variable to store the error
+            String Error = "";
+            //create a temporary variable to store the data values
+            DateTime DateTemp;
+            //if first name is blank
+            if(firstName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The first name may not be blank : ";
+            }
+            //if the first name is greater then 10 characters
+            if(firstName.Length > 10)
+            {
+                //record the error
+                Error = Error + "The first name must be less the 10 characters: ";
+            }
+            if (lastName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The last name may not be blank : ";
+            }
+            //if the first name is greater then 10 characters
+            if (lastName.Length > 10)
+            {
+                //record the error
+                Error = Error + "The last name must be less the 10 characters: ";
+            }
+            if (address.Length == 0)
+            {
+                //record the error
+                Error = Error + "The addresss may not be blank : ";
+            }
+            //if the address is greater then 50 characters
+            if (address.Length > 50)
+            {
+                //record the error
+                Error = Error + "The address must be less the 50 characters: ";
+            }
+            if (emailAddress.Length == 0)
+            {
+                //record the error
+                Error = Error + "The email address may not be blank : ";
+            }
+            //if the email address is greater then 50 characters
+            if (emailAddress.Length > 50)
+            {
+                //record the error
+                Error = Error + "The email address must be less the 50 characters: ";
+            }
+
+            //check to see if the date is less
+            DateTime DateComp = DateTime.Now.Date;
+            try
+            {
+                //copy the dateAdded value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(dateOfBirth);
+
+                if (DateTemp > DateComp)
+                {
+                    Error = Error + "The date cannot be in the future: ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date was not a valid date:";
+             }
+
+            //return any error message
+            return Error;
+        }
     }
 }
