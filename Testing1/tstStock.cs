@@ -27,16 +27,16 @@ namespace Testing6
         }
 
         [TestMethod]
-        public void ValidMethodOK()
-        {
-            //create an istance of the class we want to create
-            clsStock AnStock = new clsStock();
-            //string variable to store any error message
-            String Error = "";
-            //invoke the method  
-            Error = AnStock.Valid(DateAdded,ShoesBrand,ShoesDesc, ShoesColour, Price, Available);
-            //test to see that the values are the same
-            Assert.AreEqual(Error, "");
+            public void ValidMethodOK()
+            {
+                //create an istance of the class we want to create
+                clsStock AnStock = new clsStock();
+                //string variable to store any error message
+                String Error = "";
+                //invoke the method  
+                Error = AnStock.Valid(DateAdded,ShoesBrand,ShoesDesc, ShoesColour, Price, Available);
+                //test to see that the values are the same
+                Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
