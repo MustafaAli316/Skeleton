@@ -106,5 +106,77 @@ namespace Testing2
             Assert.AreEqual(AllCustomer.Count, TestList.Count);
 
         }
+        [TestMethod]
+
+        public void AddMethodOK()
+        {
+            //create an instance of the class we want to create 
+            clsCustomerCollection AllCustomer = new clsCustomerCollection();
+            //create the item of the test data
+            clsCustomer TestItem = new clsCustomer();
+            //variable to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties 
+            TestItem.LoyalCustomer = true;
+            TestItem.FirstName = "ahsan";
+            TestItem.LastName = "arif";
+            TestItem.DateOfBirth = DateTime.Now.AddYears(-20).AddDays(-43);
+            TestItem.Address = "64 stanmore road";
+            TestItem.EmailAddress = "arif786@live.com";
+            //set This Address to the test data
+            AllCustomer.ThisCustomer = TestItem;
+            //add the record
+            PrimaryKey = AllCustomer.Add();
+            //set the primary key of the test data
+            TestItem.CustomerId = PrimaryKey;
+            //find the record
+            AllCustomer.ThisCustomer.Find(PrimaryKey);
+            //test to see that the two values are the same
+            Assert.AreEqual(AllCustomer.ThisCustomer, TestItem);
+        }
+
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            //create an instance of the class we want to create 
+            clsCustomerCollection AllCustomer = new clsCustomerCollection();
+            //create the item of the test data
+            clsCustomer TestItem = new clsCustomer();
+            //variable to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties 
+            TestItem.FirstName = "ahsan";
+            TestItem.LastName = "arif";
+            TestItem.DateOfBirth = DateTime.Now.AddYears(-20).AddDays(-43);
+            TestItem.Address = "64 stanmore road";
+            TestItem.EmailAddress = "arif786@live.com";
+            TestItem.LoyalCustomer = true;
+            //set This Address to the test data
+            AllCustomer.ThisCustomer = TestItem;
+            //add the record
+            PrimaryKey = AllCustomer.Add();
+            //set the primary key of the test data
+            TestItem.CustomerId = PrimaryKey;
+            //set its properties 
+            TestItem.FirstName = "false";
+            TestItem.LastName = "sadsad";
+            TestItem.DateOfBirth = DateTime.Now.AddYears(-20).AddDays(-44);
+            TestItem.Address = "65 sdasd road";
+            TestItem.EmailAddress = "arif786@live.com";
+            TestItem.LoyalCustomer = true;
+            //set the record based on the new test data
+            AllCustomer.ThisCustomer = TestItem;
+            //update the record
+            AllCustomer.Update();
+            //find the record
+            AllCustomer.ThisCustomer.Find(PrimaryKey);
+            //test to see that the two values are the same
+            Assert.AreEqual(AllCustomer.ThisCustomer, TestItem);
+        }
+
+
+
+
+
     }
 }
