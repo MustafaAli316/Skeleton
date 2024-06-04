@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 
 namespace ClassLibrary
@@ -136,14 +137,27 @@ namespace ClassLibrary
             mOrderCompleted= true;
             mQuantity=21;
             mTotal = 21;
-            mCourierCompany="AAAA";
+            mCourierCompany="Royal Mail";
             //always return the true
             return true;
         }
 
         public string Valid(string orderID, string orderDate, string productID, string quantity, string total, string courierCompany)
         {
-            return"";
+            //create a string variable to store the error
+            String Error = "";
+            //if the Quantity is blank
+            if(courierCompany.Length == 0)
+            {
+                //record the error
+                Error = Error + "the courierCompany may not be blank:  "; 
+            }
+            //if the courier company is no greater than 6 characters
+            if(courierCompany.Length  > 6)
+            {
+                Error = Error + "the courier company must be less than 6 characters :  ";
+            }
+            return Error;
         }
     }
 }
