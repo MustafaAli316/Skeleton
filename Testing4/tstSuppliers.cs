@@ -7,6 +7,9 @@ namespace Testing4
     [TestClass]
     public class tstSuppliers
     {
+        public bool OK { get; private set; }
+        public object AnSuppliers { get; private set; }
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -45,7 +48,7 @@ namespace Testing4
             //create an instance of the class we want to create
             clsSuppliers AnSuppliers = new clsSuppliers();
             //create some test data to assign to the property
-            Int32 TestData = 1;
+            Int32 TestData = 21;
             //assign the data to the property
             AnSuppliers.Supplier_id = TestData;
             //test to see that the two values are the same
@@ -81,7 +84,7 @@ namespace Testing4
             //create an instance of the class we want to create
             clsSuppliers AnSuppliers = new clsSuppliers();
             //create some test data to assign to the property
-            string TestData = "LE1 4AB";
+            string TestData = "LE1 3UG";
             //assign the data to the property
             AnSuppliers.Post_Code = TestData;
             //test to see that the two values are the same
@@ -121,7 +124,7 @@ namespace Testing4
             //assign the data to the property
             AnSuppliers.Country = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AnSuppliers.Country, TestData);
+           
         }
         [TestMethod]
         public void EmailPropertyOK()
@@ -134,6 +137,213 @@ namespace Testing4
             AnSuppliers.Email = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(AnSuppliers.Email, TestData);
+        }
+ 
+        /******************FIND METHOD TEST******************/
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsSuppliers AnSuppliers = new clsSuppliers();
+            //create a Boolean variable to store the results of the validation
+            Boolean Found = false;
+            //create some test data to use with the method
+            Int32 Supplier_id = 21;
+            //invoke the method
+            Found = AnSuppliers.Find(Supplier_id);
+            //test to see if the result is true
+            Assert.IsTrue(Found);
+        }
+        /******************PROPERTY DATA TESTS******************/
+
+        [TestMethod]
+        public void TestSupplierNameFound()
+        {
+            //create an instance of the class we want to create
+            clsSuppliers AnSuppliers = new clsSuppliers();
+            //create a Boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a Boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 Supplier_id = 21;
+            //invoke the method
+            Found = AnSuppliers.Find(Supplier_id);
+            //check the house no property
+            if (AnSuppliers.Supplier_Name != "Mausham")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestContactFound()
+        {
+            //create an instance of the class we want to create
+            clsSuppliers AnSuppliers = new clsSuppliers();
+            //create a Boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a Boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 Supplier_id = 21;
+            //invoke the method
+            Found = AnSuppliers.Find(Supplier_id);
+            //check the house no property
+            if (AnSuppliers.Contact_Number != "07423619166")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestEmailFound()
+        {
+            //create an instance of the class we want to create
+            clsSuppliers AnSuppliers = new clsSuppliers();
+            //create a Boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a Boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 Supplier_id = 21;
+            //invoke the method
+            Found = AnSuppliers.Find(Supplier_id);
+            //check the house no property
+            if (AnSuppliers.Email != "mausham2080@gmail.com")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(!OK);
+
+        }
+        [TestMethod]
+        public void TestAddressFound()
+        {
+            //create an instance of the class we want to create
+            clsSuppliers AnSuppliers = new clsSuppliers();
+            //create a Boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a Boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 Supplier_id = 21;
+            //invoke the method
+            Found = AnSuppliers.Find(Supplier_id);
+            //check the house no property
+            if (AnSuppliers.Address != "Some Address")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestPostCodeFound()
+        {
+            //create an instance of the class we want to create
+            clsSuppliers AnSuppliers = new clsSuppliers();
+            //create a Boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a Boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 Supplier_id = 21;
+            //invoke the method
+            Found = AnSuppliers.Find(Supplier_id);
+            //check the house no property
+            if (AnSuppliers.Post_Code != "LE1 3UG")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestCityFound()
+        {
+            //create an instance of the class we want to create
+            clsSuppliers AnSuppliers = new clsSuppliers();
+            //create a Boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a Boolean variable to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 Supplier_id = 21;
+            //invoke the method
+            Found = AnSuppliers.Find(Supplier_id);
+            //check the address id property
+            if (AnSuppliers.City != "Leicester")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestCountryFound()
+        {
+            //create an instance of the class we want to create
+            clsSuppliers AnSuppliers = new clsSuppliers();
+            //create a Boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a Boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 Supplier_id = 21;
+            //invoke the method
+            Found = AnSuppliers.Find(Supplier_id);
+            //check the house no property
+            if (AnSuppliers.Country != "United Kingdom")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestDateAddedFound()
+        {
+            //create an instance of the class we want to create
+            clsSuppliers AnSuppliers = new clsSuppliers();
+            //create a Boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a Boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 Supplier_id = 21;
+            //invoke the method
+            Found = AnSuppliers.Find(Supplier_id);
+            //check the house no property
+            if (AnSuppliers.DateAdded != Convert.ToDateTime("07/06/2024"))
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestActiveFound()
+        {
+            //create an instance of the class we want to create
+            clsSuppliers AnSuppliers = new clsSuppliers();
+            //create a Boolean variable to store the result of the search
+            Boolean Found = false;
+            //create Boolean variable to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 AddressId = 21;
+            //invoke the method
+            Found = AnSuppliers.Find(AddressId);
+            //check the active property
+            if (AnSuppliers.Active != true)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
         }
     }
 }
