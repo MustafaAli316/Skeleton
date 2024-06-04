@@ -74,6 +74,54 @@ namespace ClassLibrary
                 //later
             } 
         }
-        public clsCustomer ThisCustomer { get; set; }
+
+        clsCustomer mThisCustomer = new clsCustomer();
+        public clsCustomer ThisCustomer 
+        { get
+            {
+                //return the private data
+                return mThisCustomer;
+            }
+            set
+            {
+                //set the private data
+                mThisCustomer = value;
+            }
+        }
+
+        public int Add()
+        {
+            //adds a record to the database based on the values of mThisAddress
+            //set the primary key value of the new record
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameter for the stored procedure
+            DB.AddParameter("@FirstName", mThisCustomer.FirstName);
+            DB.AddParameter("@LastName", mThisCustomer.LastName);
+            DB.AddParameter("@DateOfBirth", mThisCustomer.DateOfBirth);
+            DB.AddParameter("@Address", mThisCustomer.Address);
+            DB.AddParameter("@EmailAddress", mThisCustomer.EmailAddress);
+            DB.AddParameter("@LoyalCustomer", mThisCustomer.LoyalCustomer);
+
+            //excute the query returning the primary key value
+            return DB.Execute("sproc_tblCustomer_Insert");
+        }
+
+        public void Update()
+        {
+            //adds a record to the database based on the values of mThisAddress
+            //set the primary key value of the new record
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameter for the stored procedure
+            DB.AddParameter("@CustomerId", mThisCustomer.CustomerId);
+            DB.AddParameter("@FirstName", mThisCustomer.FirstName);
+            DB.AddParameter("@LastName", mThisCustomer.LastName);
+            DB.AddParameter("@DateOfBirth", mThisCustomer.DateOfBirth);
+            DB.AddParameter("@Address", mThisCustomer.Address);
+            DB.AddParameter("@EmailAddress", mThisCustomer.EmailAddress);
+            DB.AddParameter("@LoyalCustomer", mThisCustomer.LoyalCustomer);
+
+            //excute the query returning the primary key value
+            DB.Execute("sproc_tblCustomer_Update");
+        }
     }
 }
