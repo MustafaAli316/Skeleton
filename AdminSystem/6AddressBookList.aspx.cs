@@ -14,6 +14,10 @@ public partial class _1_List : System.Web.UI.Page
         {
             DisplayStocks();
         }
+
+        clsStockUser AnUser = new clsStockUser();
+        AnUser = (clsStockUser)Session["AnUser"];
+        Response.Write("Logged in as: " + AnUser.UserName);
     }
 
     void DisplayStocks()
@@ -118,5 +122,10 @@ public partial class _1_List : System.Web.UI.Page
         lstStockList.DataValueField = "ShoesNo";
         lstStockList.DataTextField = "ShoesDesc";
         lstStockList.DataBind();
+    }
+
+    protected void btnMainMenu_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("6AddressBookLogin.aspx");
     }
 }

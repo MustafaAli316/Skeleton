@@ -171,4 +171,14 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
         }
     }
+
+    protected void btnMain_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("6AddressBookLogin.aspx");
+    }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+
+    }
 } 

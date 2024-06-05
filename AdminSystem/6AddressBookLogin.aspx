@@ -10,8 +10,8 @@
     <form id="form1" runat="server">
         <div>
         </div>
-        <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 339px; top: 373px; position: absolute" Text="Cancel" />
-        <asp:Button ID="btnLogin" runat="server"  style="z-index: 1; left: 261px; top: 374px; position: absolute" Text="Login" />
+        <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 339px; top: 373px; position: absolute" Text="Cancel" OnClick="btnCancel_Click" />
+        <asp:Button ID="btnLogin" runat="server"  style="z-index: 1; left: 261px; top: 374px; position: absolute" Text="Login" OnClick="btnLogin_Click" />
         <asp:Label ID="lblPassword" runat="server" style="z-index: 1; left: 47px; top: 265px; position: absolute" Text="Password : "></asp:Label>
         <p>
             <asp:TextBox ID="txtUserName" runat="server" style="z-index: 1; left: 259px; top: 212px; position: absolute"></asp:TextBox>

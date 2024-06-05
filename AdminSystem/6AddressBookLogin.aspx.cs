@@ -27,6 +27,7 @@ public partial class _6AddressBookLogin : System.Web.UI.Page
         Password = Convert.ToString(txtPassword.Text);
         //find record
         Found = AnUser.FindUser(UserName, Password);
+        Session["AnUser"] = AnUser;
         //if username is empty or pass
         if (txtUserName.Text == "")
         {
@@ -44,5 +45,15 @@ public partial class _6AddressBookLogin : System.Web.UI.Page
         {
             lblError.Text = "Login details are incorrect. Please try again!";
         }
+    }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
+    }
+
+    protected void btnLogin_Click1(object sender, EventArgs e)
+    {
+        
     }
 }
