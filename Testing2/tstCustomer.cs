@@ -179,7 +179,7 @@ namespace Testing2
             //invoke the method
             Found = AnCustomer.Find(CustomerId);
             //check the FirstName property
-            if (AnCustomer.FirstName != "ahsan     ")
+            if (AnCustomer.FirstName != "ahsan123")
             {
                 OK = false;
             }
