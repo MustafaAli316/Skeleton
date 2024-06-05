@@ -42,7 +42,7 @@
             </p>
         <p>
             &nbsp;</p>
-            <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 244px; top: 677px; position: absolute; height: 66px; width: 115px" Text="Cancel" OnClick="btnCancel_Click" />
+            <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 240px; top: 683px; position: absolute; height: 66px; width: 115px" Text="Cancel" OnClick="btnCancel_Click" />
         </div>
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 25px; top: 619px; position: absolute; height: 39px;" Text="[lblError]"></asp:Label>
     </form>
