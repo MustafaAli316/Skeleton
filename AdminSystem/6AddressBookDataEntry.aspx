@@ -59,13 +59,14 @@
         <p>
             <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 50px; top: 768px; position: absolute; " Text="OK" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 154px; top: 768px; position: absolute" Text="Cancel" />
+            <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 154px; top: 768px; position: absolute" Text="Cancel" OnClick="btnCancel_Click" />
         </p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
+        <asp:Button ID="btnMain" runat="server" OnClick="btnMain_Click" style="z-index: 1; left: 488px; top: 761px; position: absolute" Text="Return to main menu" />
     </form>
-    <p>
-        &nbsp;</p>
-    <p>
-        &nbsp;</p>
     <p>
         &nbsp;</p>
     <p>

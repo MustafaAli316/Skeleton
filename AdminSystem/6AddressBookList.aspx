@@ -25,6 +25,7 @@
         <p>
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 30px; top: 570px; position: absolute" Text="[lblError]"></asp:Label>
         </p>
+        <asp:Button ID="btnMainMenu" runat="server" OnClick="btnMainMenu_Click" style="z-index: 1; left: 484px; top: 511px; position: absolute" Text="Return to Main Menu" />
     </form>
 </body>
 </html>
