@@ -5,19 +5,18 @@ using System;
 namespace Testing5
 {
     [TestClass]
-    public class TstOrder
+    public class tstOrder
     {
         //good test data
         //create some test data to pass the method
-        String OrderID = "01";
-        String ProductID = "01";
-        string OrderDate = DateTime.Now.ToShortDateString();
-        string CourierCompany = "Royal Mail";
-        string Quantity = "1";
-        string Total = "100.00";
-
-
         
+        String OrderDate = DateTime.Now.ToShortDateString();
+        String ProductID = "01";
+        String Quantity = "1";
+        String CourierCompany = "RoyalMail";
+        
+
+
         [TestMethod]
         public void InstanceOk()
         {
@@ -304,11 +303,11 @@ namespace Testing5
             //create an instance of the clss we want to create
             clsOrders AnOrder = new clsOrders();
         //string variables to store error message
-        string Error = "";
+        String Error = "";
         //invoke the method
-        Error = AnOrder.Valid(OrderID,OrderDate,ProductID,Quantity,Total,CourierCompany);
-            //test to see that the are correct
-      Assert.AreEqual(Error,"");
+        Error = AnOrder.Valid(OrderDate,ProductID,Quantity,CourierCompany);
+            //test to see that they are correct
+         Assert.AreEqual(Error, "");
 
         }
         [TestMethod]
@@ -321,7 +320,7 @@ namespace Testing5
             //create some test data to pass to the method
             String CourierCompany = ""; //this should trigger an error message
                                   //invoke the method
-            Error = AnOrder.Valid(Quantity,OrderID, OrderDate, ProductID, Total, CourierCompany);
+            Error = AnOrder.Valid( OrderDate, ProductID, Quantity, CourierCompany);
             //test to seethat the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -335,7 +334,7 @@ namespace Testing5
             //create some test data to pass to the method
             String CourierCompany = "a"; //this should be ok
                                         //invoke the method
-            Error = AnOrder.Valid(Quantity, OrderID, OrderDate, ProductID, Total, CourierCompany);
+            Error = AnOrder.Valid(OrderDate, ProductID, Quantity, CourierCompany);
             //test to seethat the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -349,7 +348,7 @@ namespace Testing5
             //create some test data to pass to the method
             String CourierCompany = "aa"; //this should be ok
                                          //invoke the method
-            Error = AnOrder.Valid(Quantity, OrderID, OrderDate, ProductID, Total, CourierCompany);
+            Error = AnOrder.Valid( OrderDate, ProductID, Quantity, CourierCompany);
             //test to seethat the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -363,7 +362,7 @@ namespace Testing5
             //create some test data to pass to the method
             String CourierCompany = "aaaaa"; //this should be ok
                                           //invoke the method
-            Error = AnOrder.Valid(Quantity, OrderID, OrderDate, ProductID, Total, CourierCompany);
+            Error = AnOrder.Valid( OrderDate, ProductID, Quantity, CourierCompany);
             //test to seethat the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -377,7 +376,7 @@ namespace Testing5
             //create some test data to pass to the method
             String CourierCompany = "aaaaaa"; //this should be ok
                                           //invoke the method
-            Error = AnOrder.Valid(Quantity, OrderID, OrderDate, ProductID, Total, CourierCompany);
+            Error = AnOrder.Valid( OrderDate, ProductID, Quantity, CourierCompany);
             //test to seethat the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -391,7 +390,7 @@ namespace Testing5
             //create some test data to pass to the method
             String CourierCompany = "aaa"; //this should be ok
                                           //invoke the method
-            Error = AnOrder.Valid(Quantity, OrderID, OrderDate, ProductID, Total, CourierCompany);
+            Error = AnOrder.Valid(OrderDate, ProductID, Quantity, CourierCompany);
             //test to seethat the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -405,9 +404,142 @@ namespace Testing5
             //create some test data to pass to the method
             String CourierCompany = "aaaaaaa"; //this should fail
                                           //invoke the method
-            Error = AnOrder.Valid(Quantity, OrderID, OrderDate, ProductID, Total, CourierCompany);
+            Error = AnOrder.Valid(OrderDate, ProductID, Quantity, CourierCompany);
             //test to seethat the result is correct
             Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void CourierCompanyExtremeMax()
+        {
+            //create an instance of the class we want to create 
+            clsOrders AnOrder = new clsOrders();
+            //string  c = variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            String CourierCompany = "";
+            CourierCompany = CourierCompany.PadRight(500, 'a'); //this should fail
+            //invoke the method
+            Error = AnOrder.Valid(OrderDate, ProductID, Quantity, CourierCompany);
+            //test to seethat the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void OrderDateExtremeMin()
+        {
+            //create an instance of the class we want to create 
+            clsOrders AnOrder = new clsOrders();
+            //string  c = variable to store any error message
+            String Error = "";
+            //create a variable to store testdata
+            DateTime TestDate;
+            //set the date and time to todays date
+            TestDate = DateTime.Now.Date;
+            //change to whatever date is less 100yrs
+            TestDate = TestDate.AddYears(-100);
+            //convert the date variable to a string variable
+            string OrderDate = TestDate.ToString();
+            //invoke the method
+            Error = AnOrder.Valid(OrderDate,ProductID,Quantity,CourierCompany);
+            //test to seethat the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void OrderDateMinLessOne()
+        {
+            //create an instance of the class we want to create 
+            clsOrders AnOrder = new clsOrders();
+            //string  c = variable to store any error message
+            String Error = "";
+            //create a variable to store testdata
+            DateTime TestDate;
+            //set the date and time to todays date
+            TestDate = DateTime.Now.Date;
+            //change to whatever date is less 100yrs
+            TestDate = TestDate.AddYears(-1);
+            //convert the date variable to a string variable
+            string OrderDate = TestDate.ToString();
+            //invoke the method
+            Error = AnOrder.Valid(OrderDate, ProductID, Quantity, CourierCompany);
+            //test to seethat the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void OrderDateMin()
+        {
+            //create an instance of the class we want to create 
+            clsOrders AnOrder = new clsOrders();
+            //string  c = variable to store any error message
+            String Error = "";
+            //create a variable to store testdata
+            DateTime TestDate;
+            //set the date and time to todays date
+            TestDate = DateTime.Now.Date;
+            //convert the date variable to a string variable
+            String OrderDate = TestDate.ToString();
+            //invoke the method
+            Error = AnOrder.Valid(OrderDate, ProductID, Quantity, CourierCompany);
+            //test to seethat the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void OrderDateMinPlusOne()
+        {
+            //create an instance of the class we want to create 
+            clsOrders AnOrder = new clsOrders();
+            //string  c = variable to store any error message
+            String Error = "";
+            //create a variable to store testdata
+            DateTime TestDate;
+            //set the date and time to todays date
+            TestDate = DateTime.Now.Date;
+            //change to whatever date is less 100yrs
+            TestDate = TestDate.AddYears(1);
+            //convert the date variable to a string variable
+            string OrderDate = TestDate.ToString();
+            //invoke the method
+            Error = AnOrder.Valid(OrderDate, ProductID, Quantity, CourierCompany);
+            //test to seethat the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void OrderDateExtremeMax()
+        {
+            //create an instance of the class we want to create 
+            clsOrders AnOrder = new clsOrders();
+            //string  c = variable to store any error message
+            String Error = "";
+            //create a variable to store testdata
+            DateTime TestDate;
+            //set the date and time to todays date
+            TestDate = DateTime.Now.Date;
+            //change to whatever date is over 100yrs
+            TestDate = TestDate.AddYears(100);
+            //convert the date variable to a string variable
+            string OrderDate = TestDate.ToString();
+            //invoke the method
+            Error = AnOrder.Valid(OrderDate, ProductID, Quantity,CourierCompany);
+            //test to seethat the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void OrderDateInvalidData()
+        {
+            //create an instance of the class we want to create 
+            clsOrders AnOrder = new clsOrders();
+            //string  c = variable to store any error message
+            String Error = "";
+            //set the date and time to todays date
+            String OrderDate = "this is not a date!";
+            //invoke the method
+            Error = AnOrder.Valid(OrderDate, ProductID, Quantity, CourierCompany);
+            //test to seethat the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void QuantityMinLessOne()
+        {
+            //create an instance of a class we want to create 
+           // clsOrders AnOrder = new 
         }
 
 
