@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Activities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,6 +16,9 @@ public partial class _1_List : System.Web.UI.Page
         {
             DisplayCustomers();
         }
+        clsCustomerUser AnUser = new clsCustomerUser();
+        AnUser = (clsCustomerUser)Session["AnUser"];
+        Response.Write("Logged in as : " + AnUser.UserName);
     }
 
     void DisplayCustomers()
@@ -54,5 +58,68 @@ public partial class _1_List : System.Web.UI.Page
             lblError.Text = "Please select a record from the list to edit";
         }
 
+    }
+
+    protected void btnDelete_Click(object sender, EventArgs e)
+    {
+        //variable to store the primary key value of the recrod to be deleted
+        Int32 CustomerId;
+        if (lstCustomerList.SelectedIndex != -1)
+        {
+            //get the primary key value of the record deleted
+            CustomerId = Convert.ToInt32(lstCustomerList.SelectedValue);
+            //store the data in the session object
+            Session["CustomerId"] = CustomerId;
+            //redirect to the delete page
+            Response.Redirect("2CustomerConfirmDelete.aspx");
+        }
+        else
+        {
+            //display an error message
+            lblError.Text = "Please select a record from the list to delete";
+        }
+
+    
+    }
+
+
+    protected void btnApplyFilter_Click(object sender, EventArgs e)
+    {
+        //create an instance of the address object
+        clsCustomerCollection ACustomer = new clsCustomerCollection();
+        //retrieve the value of firstname frpm presentation layer
+        ACustomer.ReportByFirstName(txtFilter.Text);
+        //set the data source to the list of first name
+        lstCustomerList.DataSource = ACustomer.CustomerList;
+        // set the name of primary key
+        lstCustomerList.DataValueField = "CustomerId";
+        //set the name of the field to display
+        lstCustomerList.DataTextField = "FirstName";
+        //bind the data to the list
+        lstCustomerList.DataBind();
+
+    }
+
+    protected void btnClearFilter_Click(object sender, EventArgs e)
+    {
+        //create an instance of the address object
+        clsCustomerCollection ACustomer = new clsCustomerCollection();
+        //set an empty string 
+        ACustomer.ReportByFirstName("");
+        //clear any existing filter to tidy up the interface
+        txtFilter.Text = "";
+        //set the data soucre to the list of customer collection
+        lstCustomerList.DataSource = ACustomer.CustomerList;
+        //set the name of the  primary key
+        lstCustomerList.DataValueField = "CustomerId";
+        //set the name of the field to display
+        lstCustomerList.DataTextField = "FirstName";
+        //bind the datato the list
+        lstCustomerList.DataBind();
+    }
+
+    protected void btnReturnToMainMenu_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
     }
 }
