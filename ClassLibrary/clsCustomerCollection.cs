@@ -1,27 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
+using ClassLibrary;
 
 namespace ClassLibrary
 {
     public class clsCustomerCollection
     {
+
         public clsCustomerCollection() 
+        {
+            //object for the data connect
+            clsDataConnection DB = new clsDataConnection();
+            //execute procedure
+            DB.Execute("sproc_tblCustomer_SelectAll");
+            //populate the array list with the data table
+            PopulateArray(DB);
+         
+        }
+
+        void PopulateArray(clsDataConnection DB)
         {
             //populates the array list based on the data table in the parameter DB
             //variable for the index
             Int32 index = 0;
 
             //variable to store the record count
-            Int32 RecordCount = 0;
-
-            //object for the data connect
-            clsDataConnection DB = new clsDataConnection();
-
-            //execute procedure
-            DB.Execute("sproc_tblCustomer_SelectAll");
+            Int32 RecordCount;
 
             //get the count of the records
             RecordCount = DB.Count;
+
+            //clear the private array list
+            mCustomerList = new List<clsCustomer>();
 
             //while there are records to process
             while (index < RecordCount)
@@ -122,6 +132,31 @@ namespace ClassLibrary
 
             //excute the query returning the primary key value
             DB.Execute("sproc_tblCustomer_Update");
+        }
+
+        public void Delete()
+        {
+            //delect the record pointed to by thisCustomer
+            //connect to the data base
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameter for the stored procedure
+            DB.AddParameter("@CustomerId", mThisCustomer.CustomerId);
+            //excute the stored procedure
+            DB.Execute("sproc_tblCustomer_Delete");
+
+        }
+
+        public void ReportByFirstName(string FirstName)
+        {
+           //filter the record based on a full 
+           //connect to the database
+           clsDataConnection DB = new clsDataConnection();
+            //send the firstname parameter to the database
+            DB.AddParameter("@FirstName", FirstName);
+            //execute the stored procedure
+            DB.Execute("sproc_tblCustomer_FilterByFirstName");
+            //populate the array list with the data table
+            PopulateArray(DB);
         }
     }
 }
