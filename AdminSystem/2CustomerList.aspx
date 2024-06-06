@@ -18,7 +18,8 @@
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 18px; top: 390px; position: absolute"></asp:Label>
         <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" style="z-index: 1; left: 137px; top: 259px; position: absolute" Text="Delete" />
         <asp:Label ID="lblFirstName" runat="server" style="z-index: 1; left: 15px; top: 309px; position: absolute" Text="Enter the First Name"></asp:Label>
-        <asp:TextBox ID="TextBox1" runat="server" style="z-index: 1; left: 160px; top: 306px; position: absolute; height: 22px"></asp:TextBox>
+        <asp:TextBox ID="txtFilter" runat="server" style="z-index: 1; left: 160px; top: 306px; position: absolute; height: 22px"></asp:TextBox>
+        <asp:Button ID="btnReturnToMainMenu" runat="server" OnClick="btnReturnToMainMenu_Click" style="z-index: 1; left: 388px; top: 301px; position: absolute" Text="Return to Main Menu" />
     </form>
 </body>
 </html>

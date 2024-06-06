@@ -150,19 +150,30 @@ namespace ClassLibrary
                                      //FIND METHOD
         public bool Find(int shoeNo)
         {
-
-            //set the private data members to the test data value
-            mShoesNo = 1;
-            mDateAdded = Convert.ToDateTime("23/12/2022");
-            mPrice = 59.99m;
-            mShoesBrand = "Nike";
-            mShoesColour = "Black";
-            mShoesDesc = "High top";
-            mAvailable = 2;
-            mActive = true;
-            
-            //always return true
-            return true;
+            //CREATE AN INSTANCE OF THE Data connection 
+            clsDataConnection DB = new clsDataConnection();
+            //add parameter for the address id 
+            DB.AddParameter("@ShoesNo", shoeNo);
+            //execute the stored procedure
+            DB.Execute("sproc_tblStock_FilterByShoesNo");
+            //if one record is found 
+            if (DB.Count==1)
+            {
+                //COPY THE DATA FROM THE DB TO THE PRivate data membets
+                mShoesNo = Convert.ToInt32(DB.DataTable.Rows[0]["ShoesNo"]);
+                mShoesDesc = Convert.ToString(DB.DataTable.Rows[0]["ShoesDesc"]);
+                mShoesBrand = Convert.ToString(DB.DataTable.Rows[0]["ShoesBrand"]);
+                mShoesColour= Convert.ToString(DB.DataTable.Rows[0]["ShoesColour"]);
+                mPrice = Convert.ToDecimal(DB.DataTable.Rows[0]["Price"]);
+                mAvailable = Convert.ToInt32(DB.DataTable.Rows[0]["Available"]);
+                mDateAdded= Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
+                return true;
+            }
+            //if no code found
+            else
+            {
+                return false;
+            }
         }
 
         public string Valid(string dateAdded, string shoesBrand, string shoesDesc, string shoesColour, string price, string available)

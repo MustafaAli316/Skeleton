@@ -16,6 +16,9 @@ public partial class _1_List : System.Web.UI.Page
         {
             DisplayCustomers();
         }
+        clsCustomerUser AnUser = new clsCustomerUser();
+        AnUser = (clsCustomerUser)Session["AnUser"];
+        Response.Write("Logged in as : " + AnUser.UserName);
     }
 
     void DisplayCustomers()
@@ -85,7 +88,7 @@ public partial class _1_List : System.Web.UI.Page
         //create an instance of the address object
         clsCustomerCollection ACustomer = new clsCustomerCollection();
         //retrieve the value of firstname frpm presentation layer
-        ACustomer.ReportByFirstName(TextBox1.Text);
+        ACustomer.ReportByFirstName(txtFilter.Text);
         //set the data source to the list of first name
         lstCustomerList.DataSource = ACustomer.CustomerList;
         // set the name of primary key
@@ -104,14 +107,19 @@ public partial class _1_List : System.Web.UI.Page
         //set an empty string 
         ACustomer.ReportByFirstName("");
         //clear any existing filter to tidy up the interface
-        btnApplyFilter.Text = "";
+        txtFilter.Text = "";
         //set the data soucre to the list of customer collection
         lstCustomerList.DataSource = ACustomer.CustomerList;
         //set the name of the  primary key
-        lstCustomerList.DataValueField = "Customer";
+        lstCustomerList.DataValueField = "CustomerId";
         //set the name of the field to display
         lstCustomerList.DataTextField = "FirstName";
         //bind the datato the list
         lstCustomerList.DataBind();
+    }
+
+    protected void btnReturnToMainMenu_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
     }
 }
