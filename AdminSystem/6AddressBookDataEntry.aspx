@@ -11,11 +11,12 @@
         <div>
         </div>
         <p>
-            &nbsp;</p>
+            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click1" style="z-index: 1; left: 450px; top: 126px; position: absolute; width: 66px; height: 26px" Text="Find" />
+        </p>
         <asp:TextBox ID="txtShoesNo" runat="server" style="z-index: 1; left: 196px; top: 129px; position: absolute"></asp:TextBox>
         <asp:Label ID="lblShoesNo" runat="server" style="z-index: 1; left: 28px; top: 129px; position: absolute" Text="ShoesNo"></asp:Label>
         <p>
-            &nbsp;</p>
+            </p>
         <p>
             <asp:Label ID="lblShoesBrand" runat="server" style="z-index: 1; left: 28px; top: 184px; position: absolute" Text="ShoesBrand"></asp:Label>
             <asp:TextBox ID="txtShoesBrand" runat="server" style="z-index: 1; left: 196px; top: 180px; position: absolute"></asp:TextBox>
@@ -23,18 +24,16 @@
         <p>
             <asp:Label ID="lblShoesDesc" runat="server" style="z-index: 1; left: 28px; top: 254px; position: absolute" Text="ShoesDesc"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="TextBox4" runat="server" style="z-index: 1; left: 196px; top: 129px; position: absolute"></asp:TextBox>
-            <asp:TextBox ID="TextBox3" runat="server" style="z-index: 1; left: 196px; top: 129px; position: absolute"></asp:TextBox>
-            <asp:TextBox ID="txtShoesDesc" runat="server" style="z-index: 1; left: 196px; top: 256px; position: absolute"></asp:TextBox>
+          
+           
         </p>
         <p>
             <asp:Label ID="lblShoesColour" runat="server" style="z-index: 1; left: 28px; top: 364px; position: absolute" Text="ShoesColour"></asp:Label>
         </p>
         <p>
             &nbsp;
-            <asp:TextBox ID="TextBox5" runat="server" style="z-index: 1; left: 196px; top: 129px; position: absolute"></asp:TextBox>
-            <asp:TextBox ID="TextBox12" runat="server" style="z-index: 1; left: 194px; top: 256px; position: absolute"></asp:TextBox>
-            <asp:TextBox ID="TextBox13" runat="server" style="z-index: 1; left: 194px; top: 256px; position: absolute"></asp:TextBox>
+           
+            <asp:TextBox ID="txtShoesDesc" runat="server" style="z-index: 1; left: 194px; top: 256px; position: absolute"></asp:TextBox>
             <asp:TextBox ID="txtShoesColour" runat="server" style="z-index: 1; left: 196px; top: 364px; position: absolute"></asp:TextBox>
         </p>
         <p>
@@ -46,7 +45,7 @@
         </p>
         <p>
             <asp:TextBox ID="txtPrice" runat="server" style="z-index: 1; left: 196px; top: 471px; position: absolute"></asp:TextBox>
-            <asp:Label ID="lblAvailable" runat="server" style="z-index: 1; left: 28px; top: 529px; position: absolute" Text="Available"></asp:Label>
+            <asp:Label ID="lblAvailable" runat="server" style="z-index: 1; left: 28px; top: 529px; position: absolute; height: 19px;" Text="Available"></asp:Label>
         </p>
         <p>
             <asp:TextBox ID="txtAvaiable" runat="server" style="z-index: 1; left: 196px; top: 532px; position: absolute"></asp:TextBox>
@@ -58,15 +57,16 @@
         <p>
             &nbsp;</p>
         <p>
-            <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 50px; top: 768px; position: absolute; right: 1402px;" Text="OK" />
+            <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 50px; top: 768px; position: absolute; " Text="OK" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 154px; top: 768px; position: absolute" Text="Cancel" />
+            <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 154px; top: 768px; position: absolute" Text="Cancel" OnClick="btnCancel_Click" />
         </p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
+        <asp:Button ID="btnMain" runat="server" OnClick="btnMain_Click" style="z-index: 1; left: 488px; top: 761px; position: absolute" Text="Return to main menu" />
     </form>
-    <p>
-        &nbsp;</p>
-    <p>
-        &nbsp;</p>
     <p>
         &nbsp;</p>
     <p>

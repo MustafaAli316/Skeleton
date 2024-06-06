@@ -142,22 +142,76 @@ namespace ClassLibrary
             return true;
         }
 
-        public string Valid(string orderID, string orderDate, string productID, string quantity, string total, string courierCompany)
+        public string Valid(string orderDate, string productID, string quantity, string courierCompany)
         {
             //create a string variable to store the error
             String Error = "";
+            //create a temporary variable to store data values
+            DateTime DateTemp;
             //if the Quantity is blank
-            if(courierCompany.Length == 0)
+            if (productID.Length == 0)
             {
                 //record the error
-                Error = Error + "the courierCompany may not be blank:  "; 
+                Error = Error + "the productID may not be blank:  ";
             }
             //if the courier company is no greater than 6 characters
-            if(courierCompany.Length  > 6)
+            if (productID.Length > 6)
             {
-                Error = Error + "the courier company must be less than 6 characters :  ";
+                Error = Error + "the productID must be less than 6 characters :  ";
             }
+            //create an instance of date and time to compare with DateTemp
+            //in the if statements
+            DateTime DateComp = DateTime.Now.Date;
+            try
+            {
+                //copy the  orderdate value to the datetemp variable
+                DateTemp = Convert.ToDateTime(orderDate);
+                if (DateTemp < DateComp) //compare orderDate with date 
+                {
+                    //record error
+                    Error = Error + "the date cannot be in the past : ";
+                }
+                //check to see if the date is greater than todays date 
+                if(DateTemp > DateComp)
+                {
+                    Error = Error + "the date cannot be in the future : ";
+                }
+            }
+           catch
+            {
+                //record error
+                Error = Error + "The date is invalid";
+            }
+            //is the quantity blank
+           if (quantity.Length == 0)
+            {
+                //record error
+                Error = Error + "The post code may not be blank: ";
+            }
+           //if the quantity is too long
+           if(quantity.Length > 9)
+            {
+                //record the error
+                Error = Error + "The quantity must be less than 9 characters"; 
+            }
+           //is the couriercompany blank
+           if(courierCompany.Length == 0)
+            {
+                //record the error
+                Error = Error + "The courier may not be blank: ";
+            }
+           //if the courier company is greater than 50
+           if(courierCompany.Length >50)
+            {
+                //record the error
+                Error = Error + "The courier must be less than 50 characters:  ";
+            }
+
+            //return any error messages
             return Error;
+        
+
+        
         }
     }
 }
