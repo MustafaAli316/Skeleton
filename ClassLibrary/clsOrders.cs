@@ -130,16 +130,34 @@ namespace ClassLibrary
 
         public bool Find(int OrderID)
         {
-            //set the private data members to the test data value
-            mOrderID = 21;
-            mOrderDate = Convert.ToDateTime("23/12/2022");
-            mProductID=21;
-            mOrderCompleted= true;
-            mQuantity=21;
-            mTotal = 21;
-            mCourierCompany="Royal Mail";
-            //always return the true
-            return true;
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the new orderid search
+            DB.AddParameter("@OrderID", OrderID);
+            //execute the sttored procedure
+            DB.Execute("sproc_tblOrder_FilterByOrderID");
+            //if one record is foung( there should be either one or zero
+            if (DB.Count == 1)
+            {
+                mOrderID = Convert.ToInt32(DB.DataTable.Rows[0]["OrderID"]);
+                mOrderDate = Convert.ToDateTime(DB.DataTable.Rows[0]["OrderDate"]); ;
+                mProductID = Convert.ToInt32(DB.DataTable.Rows[0]["ProductID"]);
+                mOrderCompleted = Convert.ToBoolean(DB.DataTable.Rows[0]["OrderCompleted"]);
+                mQuantity = Convert.ToInt32(DB.DataTable.Rows[0]["Quantity"]);
+                mTotal = Convert.ToDouble(DB.DataTable.Rows[0]["Total"]);
+                mCourierCompany = Convert.ToString(DB.DataTable.Rows[0]["CourierCompany"]);
+                //return that everything worked ok
+                return true;
+            }
+            //if no record was found
+            else
+            {
+                //return false indicating theres a problem
+                return false;
+            }
+
+
+           
         }
 
         public string Valid(string orderDate, string productID, string quantity, string courierCompany)

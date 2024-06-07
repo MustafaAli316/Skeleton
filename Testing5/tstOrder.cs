@@ -137,7 +137,7 @@ namespace Testing5
             //create a boolean variable to store the results of the validation
             Boolean Found = false;
             //create some test data to use with the method
-            Int32 OrderID = 21;
+            Int32 OrderID = 5;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //test to see if the result is true
@@ -153,11 +153,11 @@ namespace Testing5
             //create a boolean variable to record if the data is OK assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderID = 21;
+            Int32 OrderID = 5;
             //invoke the method
            Found = AnOrder.Find(OrderID);
             //check the orderID
-            if(AnOrder.OrderID != 21)
+            if(AnOrder.OrderID != 5)
             { 
             OK = false;
             } 
@@ -175,11 +175,11 @@ namespace Testing5
             //create a boolean variable to record if the data is OK assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderID = 21;
+            Int32 OrderID = 5;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the date
-            if (AnOrder.OrderDate != Convert.ToDateTime("23/12/2022"))
+            if (AnOrder.OrderDate != Convert.ToDateTime("14/05/1999"))
             {
                 OK = false;
             }
@@ -188,7 +188,7 @@ namespace Testing5
 
         }
         [TestMethod]
-        public void TestQuantity()
+        public void TestQuantityFound()
         {
             //create an instance of the class we want to create
             clsOrders AnOrder = new clsOrders();
@@ -197,11 +197,11 @@ namespace Testing5
             //create a boolean variable to record if the data is OK assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderID = 21;
+            Int32 OrderID = 5;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the quantity
-            if (AnOrder.Quantity != 21)
+            if (AnOrder.Quantity != 5)
             {
                 OK = false;
             }
@@ -210,7 +210,7 @@ namespace Testing5
 
         }
         [TestMethod]
-        public void TestProductID()
+        public void TestProductIDFound()
         {
             //create an instance of the class we want to create
             clsOrders AnOrder = new clsOrders();
@@ -219,11 +219,11 @@ namespace Testing5
             //create a boolean variable to record if the data is OK assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderID = 21;
+            Int32 OrderID = 5;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the productID
-            if (AnOrder.ProductID != 21)
+            if (AnOrder.ProductID != 6)
             {
                 OK = false;
             }
@@ -241,11 +241,11 @@ namespace Testing5
             //create a boolean variable to record if the data is OK assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderID = 21;
+            Int32 OrderID = 5;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the courier...
-            if (AnOrder.CourierCompany != "Royal Mail")
+            if (AnOrder.CourierCompany != "evri")
             {
                 OK = false;
             }
@@ -263,11 +263,11 @@ namespace Testing5
             //create a boolean variable to record if the data is OK assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderID = 21;
+            Int32 OrderID = 5;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the total
-            if (AnOrder.Total != 21)
+            if (AnOrder.Total != 50)
             {
                 OK = false;
             }
@@ -285,7 +285,7 @@ namespace Testing5
             //create a boolean variable to record if the data is OK assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderID = 21;
+            Int32 OrderID = 5;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the orderID
