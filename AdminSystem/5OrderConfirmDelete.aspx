@@ -8,6 +8,12 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:Label ID="lblConfirmationMessage" runat="server" Text="Are you sure you want to delete this order?" Style="z-index: 1; left: 50%; top: 100px; position: absolute; transform: translateX(-50%);"></asp:Label>
+
+        <asp:Button ID="btnYes" runat="server" Text="Yes" Style="z-index: 1; left: 30%; top: 150px; position: absolute; width: 120px; height: 40px;" OnClick="btnYes_Click" />
+        
+        <asp:Button ID="btnNo" runat="server" Text="No" Style="z-index: 1; left: 70%; top: 150px; position: absolute; width: 120px; height: 40px;" OnClick="btnNo_Click" />
+        
         <div>
         </div>
     </form>
